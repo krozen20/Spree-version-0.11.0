@@ -1,0 +1,27 @@
+# Logfile created on Tue Dec 28 20:39:49 +0800 2010
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-12-28 20:40:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"products"}
+
+ActiveRecord::StatementInvalid (Could not find table 'product_groups'):
+  c:/Ruby/lib/ruby/gems/1.8/gems/aws-s3-0.6.2/lib/aws/s3/extensions.rb:166:in `returning'
+  spree (0.11.0) lib/spree/search.rb:25:in `new'
+  spree (0.11.0) lib/spree/search.rb:25:in `retrieve_products'
+  spree (0.11.0) app/controllers/products_controller.rb:31:in `collection'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ContentController#show (for 127.0.0.1 at 2010-12-28 20:40:36) [GET]
+  Parameters: {"action"=>"show", "path"=>["favicon.ico"], "controller"=>"content"}
+Rendering d:/heroku/trial14/public/404.html (404 Not Found)
+
+
+Processing ContentController#show (for 127.0.0.1 at 2010-12-28 20:40:37) [GET]
+  Parameters: {"action"=>"show", "path"=>["favicon.ico"], "controller"=>"content"}
+Rendering d:/heroku/trial14/public/404.html (404 Not Found)
+
+
+Processing ContentController#show (for 127.0.0.1 at 2010-12-28 20:40:39) [GET]
+  Parameters: {"action"=>"show", "path"=>["favicon.ico"], "controller"=>"content"}
+Rendering d:/heroku/trial14/public/404.html (404 Not Found)

@@ -1,0 +1,47 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <%= button_link_to t("new_payment_method"), new_object_url, :icon => 'add'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%= t("payment_methods") %></h1>
+
+<table class="index">
+  <thead>
+    <% hook :admin_payment_methods_index_headers do %>
+      <th><%= t("name") %></th>
+      <th><%= t("provider") %></th>
+      <th><%= t("environment") %></th>
+      <th><%= t("display") %></th>
+      <th><%= t("active") %></th>
+    <% end %>
+    <th>
+      <% hook :admin_payment_methods_index_header_actions %>
+    </th>
+  </thead>
+  <tbody>
+    <% @payment_methods.each do |method|%>
+      <tr id="<%= dom_id method %>">
+        <%- locals = {:method => method} -%>
+        <% hook :admin_payment_methods_index_rows, locals do %>
+          <td width="120px"><%= method.name %></td>
+          <td width="140px"><%= method.type %></td>
+          <td width="100px"><%= method.environment.to_s.titleize %></td>
+          <td width="60px"><%= method.display.blank? ? "Both" : t(method.display) %></td>
+          <td width="60px"><%= method.active ? t(:yes) : t(:no) %></td>
+        <% end %>
+        <td width="140px">
+          <% hook :admin_payment_methods_index_row_actions, locals do %>
+            <%= link_to_edit method %> &nbsp;
+            <%= link_to_delete method %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
