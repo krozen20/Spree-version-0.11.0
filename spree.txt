@@ -1,0 +1,37 @@
+edit the necessary parts those with [ ] remove the bracket afterwards and copy and paste the following...before copying right click gitbash icon and go to properties options tab and enable the quick edit mode
+
+open gitbash
+
+copy all the text below
+
+cd /c/
+git clone git@github.com:krozen20/Spree-version-0.11.0.git spree
+cd /c/spree
+gem i rails -v 2.3.5 --no-ri --no-rdoc
+gem i sqlite3-ruby aws-s3 mongrel rubygems-update --no-ri --no-rdoc
+gem uninstall rack
+y
+y
+gem i rack -v1.0.1 --no-ri --no-rdoc
+gem i rack -v1.1.0 --no-ri --no-rdoc
+gem i spree -v0.11.0 --no-ri --no-rdoc
+gem i heroku --no-ri --no-rdoc
+gem i taps -v0.3.14 --no-ri --no-rdoc
+gem i do_sqlite3 --no-ri --no-rdoc
+gem i dm-sqlite-adapter --no-ri --no-rdoc
+gem i dbd-sqlite3 --no-ri --no-rdoc
+gem i json_pure --no-ri --no-rdoc
+gem i compass postgres-pr --no-ri --no-rdoc
+gem i taps --no-ri --no-rdoc
+git init
+git add .
+git commit -m 'first commit'
+heroku create [Your application name] -stack bamboo-ree-1.8.7
+heroku addons:add "Piggyback SSL"
+git push heroku master
+heroku db:push
+[Your application name]
+heroku config:add S3_KEY=[Your Amazon S3_KEY]
+heroku config:add S3_SECRET=[Your Amazon S3_Secret]
+heroku config:add S3_BUCKET=[Your Amazon S3_Bucket]
+b
